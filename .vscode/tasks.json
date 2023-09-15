@@ -4,9 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Reset Drupal",
+            "label": "Reset Environment",
             "type": "shell",
-            "command": "php /workspace/.devcontainer/reset.php",
+            "command": "/workspace/.devcontainer/reset.sh",
             "problemMatcher": [],
             "presentation": {
                 "reveal": "always",
