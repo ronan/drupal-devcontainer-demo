@@ -10,4 +10,4 @@ RUN set -eux; \
 	composer create-project --no-interaction "drupal/recommended-project:$DRUPAL_VERSION" ./; \
     composer require drush/drush;
 
-ENV PATH=${PATH}:/opt/drupal/vendor/bin
+ENV PATH=${PATH}:/drupal/vendor/bin
