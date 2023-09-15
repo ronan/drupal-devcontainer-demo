@@ -49,7 +49,9 @@ services:
 
   sitespeedio:
     image: sitespeedio/sitespeed.io
+    links:
+      - nginx:drupal
     volumes:
       - ../tmp/sitespeed.io:/sitespeed.io
-    command: ['http://nginx:8001/', '-b', 'chrome']
+    command: ['-b', 'chrome', '--outputFolder', '/workspace/data/sitespeed/', 'http://drupal:8001/']
     

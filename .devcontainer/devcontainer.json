@@ -11,8 +11,16 @@
 	},
 	"customizations": {
 		"vscode": {
-
 			"settings": {
+				"files.exclude": {
+					"**/.git": true,
+					"**/.svn": true,
+					"**/.hg": true,
+					"**/CVS": true,
+					"**/.DS_Store": true,
+					"**/Thumbs.db": true,
+					".*": true
+				},
 				"files.associations": {
 					"*.inc": "php"
 				},
@@ -20,21 +28,6 @@
 				"editorconfig.generateAuto": false,
 				"cSpell.words": [
 					"devcontainer",
-					"DFOREGROUND"
-				],
-				"logViewer.watch": [
-					{
-						"title": "/data/logs/apache",
-						"pattern": "data/**/*log"
-					},
-				],
-				"filewatcher.commands": [
-					{
-						"match": "*",
-						"isAsync": true,
-						"cmd": "echo '${file} file content Changed'",
-						"event": "onFileChange"
-					}		
 				]
 			},
 			"extensions": [
@@ -46,8 +39,6 @@
 				"mrmlnc.vscode-apache",
 				"DavidAnson.vscode-markdownlint",
 				"emilast.LogFileHighlighter",
-				"eamodio.gitlens",
-				"appulate.filewatcher"
 			]
 		}
 	},
