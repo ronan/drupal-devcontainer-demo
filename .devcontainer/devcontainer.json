@@ -21,6 +21,9 @@
 					"**/Thumbs.db": true,
 					".*": true
 				},
+				"files.readonlyInclude": {
+					"drupal/": true
+				},
 				"files.associations": {
 					"*.inc": "php"
 				},
