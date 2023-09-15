@@ -1,0 +1,55 @@
+version: '3.3'
+
+services:
+  devcontainer:
+    build:
+      context: ../
+      dockerfile: .devcontainer/devcontainer.Containerfile
+    volumes:
+      - ../:/workspace
+    env_file:
+      - .env
+
+  drupal10:
+    container_name: drupal10
+    image: drupal:10-fpm
+    links:
+      - db
+    volumes:
+      - ../:/workspace
+    env_file:
+      - .env
+
+  nginx:
+    image: nginx:1.25
+    links:
+      - drupal10
+    ports:
+      - "80:80"
+      - "8001:8001"
+      - "8002:8002"
+      - "8411:8411"
+    volumes:
+      - ../:/workspace
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
+  db:
+    image: mariadb:11
+    ports:
+      - 3306:3306
+    env_file:
+      - .env
+
+  phpmyadmin:
+    ports:
+      - 8080:80
+    image: phpmyadmin:5
+    env_file:
+      - .env
+
+  sitespeedio:
+    image: sitespeedio/sitespeed.io
+    volumes:
+      - ../tmp/sitespeed.io:/sitespeed.io
+    command: ['http://nginx:8001/', '-b', 'chrome']
+    

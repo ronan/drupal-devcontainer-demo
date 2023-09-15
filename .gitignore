@@ -1,0 +1,6 @@
+root/*
+logs/*
+tmp/*
+data/*
+inbox/
+.DS_Store

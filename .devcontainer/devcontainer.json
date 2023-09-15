@@ -1,0 +1,55 @@
+// See: https://www.drupal.org/docs/develop/development-tools/editors-and-ides/configuring-visual-studio-code
+{
+	"name": "Drupal 10 Devcontainer Demo",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "devcontainer",
+	"workspaceFolder": "/workspace",
+	"postCreateCommand": ["/bin/sh", "/workspace/.devcontainer/reset.sh"],
+
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
+	"customizations": {
+		"vscode": {
+
+			"settings": {
+				"files.associations": {
+					"*.inc": "php"
+				},
+				"cSpell.enabled": true,
+				"editorconfig.generateAuto": false,
+				"cSpell.words": [
+					"devcontainer",
+					"DFOREGROUND"
+				],
+				"logViewer.watch": [
+					{
+						"title": "/data/logs/apache",
+						"pattern": "data/**/*log"
+					},
+				],
+				"filewatcher.commands": [
+					{
+						"match": "*",
+						"isAsync": true,
+						"cmd": "echo '${file} file content Changed'",
+						"event": "onFileChange"
+					}		
+				]
+			},
+			"extensions": [
+				"xdebug.php-debug",
+				"bmewburn.vscode-intelephense-client",
+				"streetsidesoftware.code-spell-checker",
+				"EditorConfig.EditorConfig",
+				"ms-azuretools.vscode-docker",
+				"mrmlnc.vscode-apache",
+				"DavidAnson.vscode-markdownlint",
+				"emilast.LogFileHighlighter",
+				"eamodio.gitlens",
+				"appulate.filewatcher"
+			]
+		}
+	},
+	"remoteUser": "root"
+}

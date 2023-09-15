@@ -1,0 +1,10 @@
+{
+	"filewatcher.commands": [
+		{
+			"match": "\\.*",
+			"isAsync": true,
+			"cmd": "echo '${file} folder content Changed'",
+			"event": "onFolderChange"
+		}		
+	]
+}
